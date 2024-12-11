@@ -1,3 +1,4 @@
+import os
 import re
 import requests
 
@@ -30,7 +31,8 @@ def main():
                 print('Ссылки не найдены.')
 
         elif choice == '2':
-            file_path = input('Укажите путь к файлу: ')
+            file_name = input('Укажите имя файла (в текущей папке): ')
+            file_path = os.path.join(os.getcwd(), file_name)
             try:
                 with open(file_path, encoding='utf-8') as f:
                     html = f.read()
